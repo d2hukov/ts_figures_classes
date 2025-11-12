@@ -20,7 +20,7 @@ export class Triangle implements Figure {
       throw new Error('Triangle sides must be greater than 0');
     }
 
-    const sides: number[] = [a, b, c].sort((x, y) => x - y);
+    const sides = [a, b, c].sort((x, y) => x - y);
 
     if (sides[2] >= sides[0] + sides[1]) {
       throw new Error(`Sides ${a}, ${b} and ${c} can't form a triangle`);
@@ -28,10 +28,8 @@ export class Triangle implements Figure {
   }
 
   getArea(): number {
-    const s: number = (this.a + this.b + this.c) / 2;
-    const area: number = Math.sqrt(
-      s * (s - this.a) * (s - this.b) * (s - this.c),
-    );
+    const s = (this.a + this.b + this.c) / 2;
+    const area = Math.sqrt(s * (s - this.a) * (s - this.b) * (s - this.c));
 
     return Math.floor(area * 100) / 100;
   }
@@ -50,7 +48,7 @@ export class Circle implements Figure {
   }
 
   getArea(): number {
-    const area: number = Math.PI * this.radius * this.radius;
+    const area = Math.PI * this.radius ** 2;
 
     return Math.floor(area * 100) / 100;
   }
@@ -70,7 +68,7 @@ export class Rectangle implements Figure {
   }
 
   getArea(): number {
-    const area: number = this.width * this.height;
+    const area = this.width * this.height;
 
     return Math.floor(area * 100) / 100;
   }
